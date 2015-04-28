@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-next use-motion ">
+<html class="theme-next use-motion">
 <head>
   
 
@@ -13,20 +13,21 @@
   <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.3.0"/>
 
 
     <meta name="description" content="生命不息 梦想不止 有一颗文艺的心" />
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+
+    <meta name="keywords" content="Hexo,next" />
 
 
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.2" />
+    <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.3.0" />
 
 
 
@@ -43,19 +44,16 @@
     <div id="header" class="header">
       <div class="header-inner">
         <h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand">
-      <span class="logo">
-        <i class="icon-logo"></i>
-      </span>
-      <span class="site-title">OriginalSoul</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
+    <a href="/" class="brand">
+        <span class="logo">
+          <i class="icon-logo"></i>
+        </span>
+        <span class="site-title">OriginalSoul</span>
+    </a>
 </h1>
 
 
   <ul id="menu" class="menu">
-     
     
       
       <li class="menu-item menu-item-home">
@@ -91,9 +89,13 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-  <div id="posts" class="posts-expand">
+            
+          
+
+          <div id="posts" class="posts-expand">
+            
+  
     
-      
 
   <div class="post post-type-normal ">
     <div class="post-header">
@@ -114,25 +116,25 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-04-28
+          
+            发表于 2015-04-28
+          
         </span>
-
-        
-
         
           
         
       </div>
     </div>
 
-    <div class="post-body">
+    
+      <div class="post-body">
 
-      
-      
-
-      
         
-          <h4 id="简单模式">简单模式</h4><ul>
+        
+
+        
+          
+            <h4 id="简单模式">简单模式</h4><ul>
 <li><code>Object</code>构造函数</li>
 <li>对象字面量</li>
 </ul>
@@ -140,36 +142,41 @@
 <h4 id="工厂模式">工厂模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name, age)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">	o.name = name;</span><br><span class="line">	o.age = age;</span><br><span class="line">	o.sayName = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name);</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = Person(<span class="string">'wyd'</span>,<span class="number">18</span>);</span><br></pre></td></tr></table></figure>
 <p>优点：解决了重复问题。<br>缺点：没有解决对象识别问题，即怎样知道一个对象的类型。<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(person <span class="keyword">instanceof</span> Person);  <span class="regexp">//</span><span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/04/28/javascriptoop2/#more">
-              阅读全文 &raquo;
-            </a>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2015/04/28/javascriptoop2/#more">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/javascript/">
+                #javascript
+              </a>
+            
           </div>
         
-      
-    </div>
 
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/javascript/"> #javascript </a>
-          
-        </div>
-      
+        
 
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
   </div>
 
 
+  
     
-      
 
   <div class="post post-type-normal ">
     <div class="post-header">
@@ -190,25 +197,25 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-04-28
+          
+            发表于 2015-04-28
+          
         </span>
-
-        
-
         
           
         
       </div>
     </div>
 
-    <div class="post-body">
+    
+      <div class="post-body">
 
-      
-      
-
-      
         
-          <p>主要是三本书的读书笔记：</p>
+        
+
+        
+          
+            <p>主要是三本书的读书笔记：</p>
 <ul>
 <li><code>JavaScript</code>高级程序设计 </li>
 <li><code>JavaScript</code>面向对象编程指南</li>
@@ -254,31 +261,36 @@
 <p>两个参数：需要改变的对象 和 一个包含所有属性信息的对象，后者可以被看成一个哈希表，键是属性名，值是为该属性定义特征的属性描述对象。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">Object.defineProperties(person, &#123;</span><br><span class="line">	_birth: &#123;</span><br><span class="line">		value: <span class="number">1990</span>,</span><br><span class="line">	&#125;,</span><br><span class="line">	age: &#123;</span><br><span class="line">		value: <span class="number">24</span>,</span><br><span class="line">		writable: <span class="literal">true</span></span><br><span class="line">	&#125;,</span><br><span class="line">	birth: &#123;</span><br><span class="line">		<span class="keyword">get</span>: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">this</span>._birth;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="keyword">set</span>: <span class="function"><span class="keyword">function</span> <span class="params">(newValue)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">this</span>.age -= (newValue - <span class="number">1990</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">person.birth = <span class="number">1993</span>;</span><br><span class="line">console.log(person.age);  <span class="comment">// 21</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>获取属性特性：</strong><br><code>ECMAScript5</code>的<code>Object.getOwnPropertyDescriptor()</code>方法，接受两个参数：对象和属性名。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">	name: <span class="string">'OriginalSoul'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> descriptor = <span class="built_in">Object</span>.getOwnPropertyDescriptor(person, <span class="string">"name"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(descriptor.enumerable);  <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(descriptor.writable);    <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(descriptor.value);       <span class="comment">//OriginalSoul</span></span><br><span class="line"><span class="built_in">console</span>.log(descriptor.configurable); <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
 
+          
         
-      
-    </div>
+      </div>
+    
 
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/JavaScript/"> #JavaScript </a>
-          
-        </div>
-      
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/">
+                #JavaScript
+              </a>
+            
+          </div>
+        
 
-      
+        
 
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
   </div>
 
 
+  
     
-      
 
   <div class="post post-type-normal ">
     <div class="post-header">
@@ -299,123 +311,118 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-04-28
+          
+            发表于 2015-04-28
+          
         </span>
-
-        
-
         
           
         
       </div>
     </div>
 
-    <div class="post-body">
+    
+      <div class="post-body">
 
-      
-      
-
-      
         
-          <h3 id="关于博客">关于博客</h3><p>很早以前就想有个自己的博客，但是觉得一定要有个自己的域名，于是放弃了<code>segmentfault</code>和博客园。14年考完研的日子里，挺闲，迷上了<code>Lofter</code>，喜欢那的文艺清新范儿，奈何不支持<code>markdown</code>，写了几篇<code>Python</code>的笔记实在受不了了。后来因为<code>Python</code>，选了<code>farbox</code>，也是因为不玩<code>Python</code>，而没有再用。就这样，忙碌的生活，加之没有特别想写的东西，一直到了现在。</p>
+        
+
+        
+          
+            <h3 id="关于博客">关于博客</h3><p>很早以前就想有个自己的博客，但是觉得一定要有个自己的域名，于是放弃了<code>segmentfault</code>和博客园。14年考完研的日子里，挺闲，迷上了<code>Lofter</code>，喜欢那的文艺清新范儿，奈何不支持<code>markdown</code>，写了几篇<code>Python</code>的笔记实在受不了了。后来因为<code>Python</code>，选了<code>farbox</code>，也是因为不玩<code>Python</code>，而没有再用。就这样，忙碌的生活，加之没有特别想写的东西，一直到了现在。</p>
 <h3 id="OriginalSoul">OriginalSoul</h3><p>这个词，是我跳街舞那会，接触到的。当时跳<code>Lockin</code>，很多大师们都强调要尊重和学习<code>Original</code>的东西，指的是最初的，原始的，元老级的那些。而<code>Soul</code>，<code>James Brown</code>开创了<code>Funk</code>音乐，他的很多歌曲名字中有<code>soul</code>，反正<code>Original</code>和<code>Soul</code>这两个词在街舞圈子是经常提及。</p>
 <p>突然想写博客了，因为感觉脑海里学过的很多知识很杂，想梳理一下，比如最近就打算写点关于<code>JavaScript</code>继承方面的。因为<code>Nodejs</code>，于是选择了<code>hexo</code>。</p>
 <p><code>originalsoul.me</code>是我去年买的一个域名，留着一直没用，这次就用上了。我喜欢一致的事物，索性，什么都用<code>OriginalSoul</code>吧，邮箱，<code>github</code>等等，统统换成了新的。要一个全新的开始，打算以一个崭新的自己去迎接明天和以后的每一天。</p>
 <p>我喜欢<code>OriginalSoul</code>这个词，最初的灵魂，最初那些美好的单纯的东西和想法，希望永远不要忘记，都记在心里。</p>
 
+          
         
-      
-    </div>
+      </div>
+    
 
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/生活/"> #生活 </a>
-          
-        </div>
-      
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/生活/">
+                #生活
+              </a>
+            
+          </div>
+        
 
-      
+        
 
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
     
   </div>
 
+
   
 
-        </div>
-      </div>
-
-      
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      <div class="site-overview">
-        <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="evilcige" />
-          <p class="site-author-name">evilcige</p>
-        </div>
-        <p class="site-description motion-element">生命不息 梦想不止 有一颗文艺的心</p>
-        <div class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">3</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            
-              <span class="site-state-item-count">0</span>
-              <span class="site-state-item-name">分类</span>
-              
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">3</span>
-              <span class="site-state-item-name">标签</span>
-              </a>
-          </div>
-
-        </div>
-
-        
-
-        <div class="links-of-author motion-element">
           
         </div>
 
         
-        
+<div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
 
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    
+
+    <div class="site-overview">
+      <div class="site-author motion-element">
+        <img class="site-author-image" src="/images/default_avatar.jpg" alt="evilcige" />
+        <p class="site-author-name">evilcige</p>
+      </div>
+      <p class="site-description motion-element">生命不息 梦想不止 有一颗文艺的心</p>
+      <div class="site-state motion-element">
+        <div class="site-state-item site-state-posts">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </div>
+        <div class="site-state-item site-state-tags">
+            <span class="site-state-item-count">3</span>
+            <span class="site-state-item-name">标签</span>
+        </div>
+        <div class="site-state-item site-state-pages">
+            <span class="site-state-item-count">0</span>
+            <span class="site-state-item-name">页面</span>
+        </div>
       </div>
 
       
 
+      <div class="social-info motion-element">
+        
+      </div>
+
+      
+      
+
     </div>
+
+    
+
   </div>
+</div>
 
 
+      </div>
     </div>
 
     <div id="footer" class="footer">
@@ -435,10 +442,7 @@
 </div>
 
 <div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
-  </a>
+  主题 - <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT</a>
 </div>
 
 
@@ -458,25 +462,9 @@
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-      $('.content img').each(function () {
-        var $image = $(this);
-        var $imageWrapLink = $image.parent('a');
-
-        if ($imageWrapLink.size() < 1) {
-          $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
-        }
-        $imageWrapLink.addClass('fancybox');
-      });
-    });
-    $('.fancybox').fancybox({
-      helpers: {
-        overlay: {
-          locked: false
-        }
-      }
+      $(".fancybox").fancybox();
     });
   </script>
-
 
   <script type="text/javascript">
   function hasMobileUA () {
@@ -509,6 +497,19 @@
   <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
   <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
+  
+  <script type="text/javascript" id="motion.page.home">
+    $(document).ready(function () {
+      $.Velocity.RunSequence([
+        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
+        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
+        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200, sequenceQueue: false } }
+      ]);
+      $('.menu-item').velocity('transition.slideDownIn', {display: null});
+    });
+  </script>
+
+
   <script type="text/javascript" id="motion.global">
   $(document).ready(function () {
     var body = $('body');
@@ -536,7 +537,6 @@
     var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
     var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
 
-    LogoAndMenuMotion();
     sidebatToggleMotion();
     postsListMotion();
     backToTopMotion();
@@ -551,16 +551,6 @@
         sidebarContentMotion();
       })
       .on('sidebar.isHiding', function () {});
-
-    function LogoAndMenuMotion() {
-      $.Velocity.RunSequence([
-        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
-        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
-        
-        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
-      ]);
-      $('.menu-item').velocity('transition.slideDownIn', {display: null});
-    }
 
 
     function backToTopMotion () {
@@ -607,7 +597,7 @@
     }
 
     function postsListMotion () {
-      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
+      var postMotionOptions = postMotionOptions || {stagger: 300, drag: true};
       $('.post').velocity('transition.slideDownIn', postMotionOptions);
     }
 
@@ -643,11 +633,8 @@
 
   
   
-  
 
   
-
-
 
 
   
