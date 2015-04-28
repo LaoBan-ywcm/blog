@@ -32,13 +32,13 @@
 
 
 
-  <title> OriginalSoul </title>
+  <title>
+  tags // OriginalSoul
+</title>
 </head>
 
 <body>
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column ">
     <div class="headband"></div>
 
     <div id="header" class="header">
@@ -94,262 +94,21 @@
             
           
 
-          <div id="posts" class="posts-expand">
+          <div id="posts" class="posts-collapse">
             
+
   
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/04/28/javascriptoop2/">
-                JavaScript OOP (二) 创建对象
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2015-04-28
-          
-        </span>
-
-        
-          
-        
-
-        
-          
-        
+  
+    <div class="tag-cloud">
+      <div class="tag-cloud-title">
+          目前共计 2 个标签
+      </div>
+      <div class="tag-cloud-tags">
+        <a href="/tags/JavaScript/" style="font-size: 30px; color: #111">JavaScript</a><a href="/tags/生活/" style="font-size: 12px; color: #ccc">生活</a>
       </div>
     </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <h4 id="简单模式">简单模式</h4><ul>
-<li><code>Object</code>构造函数</li>
-<li>对象字面量</li>
-</ul>
-<p>缺点：会产生大量的重复代码。</p>
-<h4 id="工厂模式">工厂模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name, age)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">	o.name = name;</span><br><span class="line">	o.age = age;</span><br><span class="line">	o.sayName = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name);</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            <div class="post-more-link text-center">
-              <a class="btn" href="/2015/04/28/javascriptoop2/#more">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/JavaScript/">
-                #JavaScript
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
   
-    
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/04/28/javascriptoop1/">
-                JavaScript OOP (一) 初探
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2015-04-28
-          
-        </span>
-
-        
-          
-        
-
-        
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <p>主要是三本书的读书笔记：</p>
-<ul>
-<li><code>JavaScript</code>高级程序设计 </li>
-<li><code>JavaScript</code>面向对象编程指南</li>
-<li><code>JavaScript</code>面向对象精要</li>
-</ul>
-<h4 id="原型">原型</h4><p>每个函数都有一个<code>prototype</code>(原型)属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含由特定类型的所有实例共享的属性和方法。</p>
-<p>每个原型对象，默认情况下，都会自动获得一个<code>constructor</code>(构造函数)属性，这个属性包含一个指向<code>prototype</code>属性所在函数的指针。</p>
-<p>每个实例，内部包含一个指针(内部属性)<code>[[Prototype]]</code>，指向构造函数的原型对象。</p>
-<p>首先来看<code>Object.prototype</code>的几个方法：<br><code>hasOwnProperty()</code>、<code>propertyIsEnumerable()</code>、<code>isPrototypeOf()</code>、<br><code>valueOf()</code>、<code>toString()</code><br>这5种方法经由继承会出现在所有对象中。</p>
-<p><code>ECMAScript5</code>增加了一个新方法，<code>Object.getPrototypeof()</code>，参数是实例，返回<code>[[Prototype]]</code>的值。<br>
-            <div class="post-more-link text-center">
-              <a class="btn" href="/2015/04/28/javascriptoop1/#more">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/JavaScript/">
-                #JavaScript
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
-    
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/04/28/hello-world/">
-                新的开始
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          
-            发表于 2015-04-28
-          
-        </span>
-
-        
-          
-        
-
-        
-          
-        
-      </div>
-    </div>
-
-    
-      <div class="post-body">
-
-        
-        
-
-        
-          
-            <h3 id="关于博客">关于博客</h3><p>很早以前就想有个自己的博客，但是觉得一定要有个自己的域名，于是放弃了<code>segmentfault</code>和博客园。14年考完研的日子里，挺闲，迷上了<code>Lofter</code>，喜欢那的文艺清新范儿，奈何不支持<code>markdown</code>，写了几篇<code>Python</code>的笔记实在受不了了。后来因为<code>Python</code>，选了<code>farbox</code>，也是因为不玩<code>Python</code>，而没有再用。就这样，忙碌的生活，加之没有特别想写的东西，一直到了现在。</p>
-<h3 id="OriginalSoul">OriginalSoul</h3><p>这个词，是我跳街舞那会，接触到的。当时跳<code>Lockin</code>，很多大师们都强调要尊重和学习<code>Original</code>的东西，指的是最初的，原始的，元老级的那些。而<code>Soul</code>，<code>James Brown</code>开创了<code>Funk</code>音乐，他的很多歌曲名字中有<code>soul</code>，反正<code>Original</code>和<code>Soul</code>这两个词在街舞圈子是经常提及。<br>
-            <div class="post-more-link text-center">
-              <a class="btn" href="/2015/04/28/hello-world/#more">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-        
-      </div>
-    
-
-    
-      <div class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/生活/">
-                #生活
-              </a>
-            
-          </div>
-        
-
-        
-
-        
-        
-          <div class="post-eof"></div>
-        
-      </div>
-    
-  </div>
-
-
-  
 
           </div>
 
