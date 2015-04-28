@@ -16,6 +16,8 @@
 <link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
 
 
+    <meta name="description" content="生命不息 梦想不止 有一颗文艺的心" />
+
 
 
   <meta name="keywords" content="Hexo,next" />
@@ -90,6 +92,98 @@
         <div id="content" class="content">
           
   <div id="posts" class="posts-expand">
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/04/28/javascriptoop2/">
+                JavaScript OOP (一) 创建对象
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-04-28
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h4 id="简单模式">简单模式</h4><ul>
+<li><code>Object</code>构造函数</li>
+<li>对象字面量</li>
+</ul>
+<p>缺点：会产生大量的重复代码。</p>
+<h4 id="工厂模式">工厂模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name, age)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">	o.name = name;</span><br><span class="line">	o.age = age;</span><br><span class="line">	o.sayName = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name);</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = Person(<span class="string">'wyd'</span>,<span class="number">18</span>);</span><br></pre></td></tr></table></figure>
+<p>优点：解决了重复问题。<br>缺点：没有解决对象识别问题，即怎样知道一个对象的类型。<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(person <span class="keyword">instanceof</span> Person);  <span class="regexp">//</span><span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="构造函数模式">构造函数模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name, age)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 要创建Person的新实例，必须使用new操作符。</span></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">'wyd'</span>,<span class="number">18</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>优点：</strong><br>拥有了<code>constructor</code>(构造函数)属性，用来识别对象类型：<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(person.<span class="keyword">constructor</span> == Person); <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>还可以用<code>instanceof</code>检测对象类型：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert(person <span class="keyword">instanceof</span> <span class="built_in">Object</span>);  <span class="comment">//true</span></span><br><span class="line">alert(person <span class="keyword">instanceof</span> Person);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>有了<code>new</code>操作符来调用，其实任何函数，只要通过<code>new</code>操作符来调用，那它就可以作为构造函数；否则跟普通函数没两样。</p>
+<p><strong>缺点：</strong><br>如果构造函数中有 不变的属性 和 方法，那么这些都要在每个实例上重新创建一遍，这样就多占用内存，而且缺乏效率。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">'evilcige'</span>,<span class="number">24</span>);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(person.sayName == person2.sayName);  <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p>如上，可以看到不同实例上的同名函数是不相等的。</p>
+<p>如果改变下，把方法变成全局函数拿到外面，那就又毫无封装性可言。</p>
+<h4 id="原型模式">原型模式</h4><p>每一个构造函数都有一个<code>prototype</code>属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例所共享。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.name = <span class="string">"evilcige"</span>;</span><br><span class="line">Person.prototype.age = <span class="number">24</span>;</span><br><span class="line">Person.prototype.job = <span class="string">"Front-end Engineer"</span>;</span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line">person1.sayName();   <span class="comment">//"evilcige"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person();</span><br><span class="line">person2.sayName();   <span class="comment">//"evilcige"</span></span><br><span class="line"></span><br><span class="line">alert(person1.sayName == person2.sayName);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>在所有实现中都无法访问到<code>[[Prototype]]</code>，但可以通过<code>isPrototypeOf()</code>方法来确定对象之间是否存在这种关系：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(Person.prototype.isPrototypeOf(person1));  <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p><code>ECMAScript 5</code>增加了一个新方法，叫<code>Object.getPrototypeOf()</code>，在所有支持的实现中，这个方法返回<code>[[Prototype]]</code>的值：<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="built_in">Object</span>.getPrototypeOf(person1) == Person.prototype); <span class="comment">//true</span></span><br><span class="line">alert(<span class="built_in">Object</span>.getPrototypeOf(person1).name); <span class="comment">//"evilcige"</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>优点：</strong>解决了构造函数模式的问题，提高了效率。<br><strong>缺点：</strong><br>首先，它省略了为构造函数传递初始化参数这一环节，结果所有实例在默认情况下都将取得相同的属性值。这会在某种程度上带来一些不方便。</p>
+<p>其次，原型中所有属性是被很多实例共享的，对于包含引用类型值的属性来说，就有问题了。一个实例如果修改了引用类型的属性，则由于共享性，修改会反映到另一个实例。</p>
+<h4 id="组合使用构造函数模式和原型模式">组合使用构造函数模式和原型模式</h4><p>创建自定义类型的最常见方式，就是组合使用构造函数模式与原型模式。构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name, age, job)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">    <span class="keyword">this</span>.friends = [<span class="string">"mhb"</span>, <span class="string">"zyf"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    <span class="constructor"><span class="keyword">constructor</span> : Person,</span><br><span class="line">    sayName : function()</span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>重设<code>constructor</code>属性会导致它的<code>[[Enumerable]]</code>特性被设置为<code>true</code>，默认情况下，原生的<code>constructor</code>属性是不可枚举的。<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="reserved">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"evilcige"</span>, <span class="number">25</span>, <span class="string">"FE Engineer"</span>);</span><br><span class="line"><span class="reserved">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"OrigianlSoul"</span>, <span class="number">24</span>, <span class="string">"student"</span>);</span><br><span class="line"></span><br><span class="line">person1.friends.push(<span class="string">"zy"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person1.friends);    <span class="regexp">//</span> [<span class="string">"mhb"</span>, <span class="string">"zyf"</span>, <span class="string">"zy"</span>] </span><br><span class="line"><span class="built_in">console</span>.log(person2.friends);    <span class="regexp">//</span> [<span class="string">"mhb"</span>, <span class="string">"zyf"</span>] </span><br><span class="line"><span class="built_in">console</span>.log(person1.friends === person2.friends);    <span class="regexp">//</span><span class="literal">false</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.sayName === person2.sayName);    <span class="regexp">//</span><span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<p>这种构造函数与原型混成的模式，是目前在ECMAScript中使用最广泛、认同度最高的一种创建自定义类型的方法。可以说，这是用来定义引用类型的一种默认模式。</p>
+<h4 id="寄生构造函数模式">寄生构造函数模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name, age, job)</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">    o.name = name;</span><br><span class="line">    o.age = age;</span><br><span class="line">    o.job = job;</span><br><span class="line">    o.sayName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;;    </span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> friend = <span class="keyword">new</span> Person(<span class="string">"evilcige"</span>, <span class="number">24</span>, <span class="string">"FE Engineer"</span>);</span><br><span class="line">friend.sayName();  <span class="comment">// "evilcige"</span></span><br></pre></td></tr></table></figure>
+<p>这个模式可以在特殊的情况下用来为对象创建构造函数。假设我们想创建一个具有额外方法的特殊数组。由于不能直接修改<code>Array</code>构造函数，因此可以使用这个模式。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SpecialArray</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建数组</span></span><br><span class="line">    <span class="keyword">var</span> values = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//添加值</span></span><br><span class="line">    <span class="built_in">Array</span>.prototype.push.apply(values, <span class="built_in">arguments</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//添加方法</span></span><br><span class="line">    values.toPipedString = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.join(<span class="string">"|"</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//返回数组</span></span><br><span class="line">    <span class="keyword">return</span> values;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> SpecialArray(<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"green"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(colors.toPipedString()); <span class="comment">// "red|blue|green"</span></span><br></pre></td></tr></table></figure></p>
+<p>返回的对象，与构造函数或者与构造函数的原型属性之间没有关系。</p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/"> #javascript </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
     
       
 
@@ -296,11 +390,11 @@
           <img class="site-author-image" src="/images/default_avatar.jpg" alt="evilcige" />
           <p class="site-author-name">evilcige</p>
         </div>
-        <p class="site-description motion-element"></p>
+        <p class="site-description motion-element">生命不息 梦想不止 有一颗文艺的心</p>
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -314,7 +408,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
