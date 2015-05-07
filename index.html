@@ -108,8 +108,89 @@
           
           
             
+              <a class="post-title-link" href="/2015/05/07/javascriptoop4/">
+                JavaScript OOP (三) 继承 2
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          
+            发表于 2015-05-07
+          
+        </span>
+
+        
+          
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          
+            <p>上篇文章中所有的方法都是以构造器创建对象为前提的，并且，在这些用于创建对象的构造器中引入了从其他构造器中继承而来的属性。</p>
+<p>那现在就丢开构造器，直接通过<code>对象标识法</code>来创建对象。在对象之间进行直接属性拷贝。</p>
+<h4 id="浅拷贝">浅拷贝</h4>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2015/05/07/javascriptoop4/#more">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+        
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/">
+                #JavaScript
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+        
+          <div class="post-eof"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/05/07/javascriptoop3/">
-                JavaScript OOP (三) 继承1
+                JavaScript OOP (三) 继承 1
               </a>
             
           
@@ -143,32 +224,12 @@
           
             <h2 id="原型链">原型链</h2><p>首先，要清楚构造函数、原型、和实例的关系。</p>
 <p>基本思想就是，让<code>原型对象</code>等于 另一个引用类型的<code>实例</code>，此时的原型对象将包含一个指向另一个原型的指针。</p>
-<p>假如另一个原型又是另一个类型的实例，层层递进，就构成了所谓的<code>原型链</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.type = <span class="string">"动物"</span>;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.getType = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.type;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.ownType = <span class="string">"狗"</span>; </span><br><span class="line">&#125;</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"><span class="comment">// 继承了 Animal</span></span><br><span class="line">Dog.prototype = <span class="keyword">new</span> Animal();</span><br><span class="line"></span><br><span class="line">Dog.prototype.getOwnType = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.ownType;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dog = <span class="keyword">new</span> Dog();</span><br><span class="line"><span class="built_in">console</span>.log(dog.getType());     <span class="comment">//动物</span></span><br><span class="line"><span class="built_in">console</span>.log(dog.getOwnType());  <span class="comment">//狗</span></span><br></pre></td></tr></table></figure>
-<p>这里要注意的是：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(Dog.prototype.constructor == Animal); <span class="regexp">//</span><span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
-<p>因为<code>Dog.prototype</code>是<code>Animal</code>的实例，没有<code>constructor</code>，只能通过搜索找到<code>Animal.prototype</code>的。<br>所以往往要，改一下：<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dog.prototype.<span class="keyword">constructor</span> = Dog;</span><br></pre></td></tr></table></figure></p>
-<p><strong>原型链的问题：</strong></p>
-<p>1.包含引用类型值的原型属性会被所有实例共享；而这也正是为什么要在构造函数中，而不是在原型对象中定义属性的原因。<br>在通过原型来实现继承时，原型实际上会变成另一个类型的实例。于是，原先的实例属性也就顺理成章地变成了现在的原型属性了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.colors = [<span class="string">'black'</span>,<span class="string">'white'</span>,<span class="string">'yellow'</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">Cat.prototype = <span class="keyword">new</span> Animal();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat1 = <span class="keyword">new</span> Cat(),</span><br><span class="line">	cat2 = <span class="keyword">new</span> Cat();</span><br><span class="line"></span><br><span class="line">cat1.colors.push(<span class="string">'silver'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(cat2.colors);	<span class="comment">//	["black", "white", "yellow", "silver"]</span></span><br></pre></td></tr></table></figure></p>
-<p>2.在创建子类型的实例时，不能向超类型的构造函数中传递参数。实际上，应该说是没有办法在不影响所有对象实例的情况下，给超类型的构造函数传递参数。</p>
-<h2 id="借用构造函数（constructor_stealing）">借用构造函数（constructor stealing）</h2><p>基本思想是：在子类型构造函数的内部调用超类型构造函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> <span class="params">(name, type)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.type = type;</span><br><span class="line">	<span class="keyword">this</span>.colors = [<span class="string">'black'</span>,<span class="string">'white'</span>,<span class="string">'yellow'</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//继承了Animal，同时传递参数</span></span><br><span class="line">	Animal.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="comment">//或者： Animal.call(this,arguments[0],arguments[1]);</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat1 = <span class="keyword">new</span> Cat(<span class="string">"小花"</span>,<span class="string">"英短"</span>),</span><br><span class="line">	cat2 = <span class="keyword">new</span> Cat(<span class="string">"小白"</span>,<span class="string">"波斯猫"</span>);</span><br><span class="line"></span><br><span class="line">cat1.colors.push(<span class="string">'silver'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(cat2.colors);  <span class="comment">//["black", "white", "yellow"] </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cat1.type);  <span class="comment">//英短 </span></span><br><span class="line"><span class="built_in">console</span>.log(cat2.name);  <span class="comment">//小白</span></span><br></pre></td></tr></table></figure></p>
-<p>这样，就解决了上面原型链的两个问题，但是又有新问题了：</p>
-<ol>
-<li>方法都在构造函数中定义，因此函数复用就无从谈起了。</li>
-<li>在<code>超类型的原型</code>中定义的方法，对子类型而言也是不可见的，结果所有类型都只能使用构造函数模式。</li>
-</ol>
-<h2 id="组合继承（combination_inheritance）">组合继承（combination inheritance）</h2><p>基本思想是：使用原型链实现对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> <span class="params">(type)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.type = type;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.getType = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.type;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//继承属性</span></span><br><span class="line">	Animal.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//继承方法</span></span><br><span class="line">Cat.prototype = <span class="keyword">new</span> Animal();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">'英短'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(cat.getType());  <span class="comment">//英短</span></span><br></pre></td></tr></table></figure></p>
-<p>组合继承避免了原型链和借用构造函数的缺陷，融合了它们的优点，成为<code>JavaScript</code>中最常用的继承模式。</p>
-<hr>
-<h2 id="只继承于原型">只继承于原型</h2><p>出于效率问题，应尽可能将一些可重用的属性和方法添加到原型中去（<code>new Animal()</code>方式会将<code>Animal</code>的属性设定为对象自身的属性，因而不可重用，因而设置在原型中），不要单独为继承关系创建新对象，尽量减少运行时方法和属性搜索。这样形成习惯，仅仅依靠原型就能完成继承关系了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.type = <span class="string">"动物"</span>;</span><br><span class="line">Animal.prototype.getType = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.type;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//继承方法</span></span><br><span class="line">Cat.prototype = Animal.prototype;</span><br><span class="line">Cat.prototype.constructor = Cat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.getType());  <span class="comment">//动物</span></span><br></pre></td></tr></table></figure></p>
-<p>但是又有新问题出现：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>(Animal.prototype.constructor);  <span class="comment">//指向 Cat</span></span><br></pre></td></tr></table></figure></p>
-<p>因为<code>Cat.prototype</code>和<code>Animal.prototype</code>是同一个对象。所以子对象的修改会影响父对象。</p>
-<h2 id="临时构造器法">临时构造器法</h2><p>为了解决上面的问题，利用一个空对象作为中介，然后再进行封装：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span> <span class="params">(Child, Parent)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">	F.prototype = <span class="keyword">Parent</span>.prototype;</span><br><span class="line">	Child.prototype = <span class="keyword">new</span> F();</span><br><span class="line">	Child.prototype.constructor = Child;</span><br><span class="line">	Child.uber = <span class="keyword">Parent</span>.prototype;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>运用：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.type = <span class="string">"animal"</span>;</span><br><span class="line">Animal.prototype.getType = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.type;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span> <span class="params">(name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">extend(Cat,Animal);</span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">'小花'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cat.name);      <span class="comment">//小花</span></span><br><span class="line"><span class="built_in">console</span>.log(cat.getType()); <span class="comment">//animal</span></span><br></pre></td></tr></table></figure></p>
-<p>此模式，只继承父对象的原型属性，而对于其父对象自身属性(也就是被构造器添加到this值中的属性)则不予继承。<br>同时<code>uber</code>属性为访问父对象提供了便利。有点<code>Java</code>中<code>super</code>的味道。</p>
-<h2 id="原型属性拷贝法">原型属性拷贝法</h2><p>换一种思路，尝试与之前略有不同的方法。可以简单地将父对象的属性拷给子对象：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span> <span class="params">(Child, Parent)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> p = Parent.prototype;</span><br><span class="line">	<span class="keyword">var</span> c = Child.prototype;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> p) &#123;</span><br><span class="line">		c[i] = p[i];</span><br><span class="line">	&#125;</span><br><span class="line">	c.uber = p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这个方法的效率比上面的要低，因为这里执行的是子对象原型的逐一拷贝，而不是简单地原型链查询。这种方式只适合包含基本数据类型的对象，所有的引用类型(包括函数和数组)都是不可复制的，因为它们只支持引用传递。</p>
-<p>其实这种效率低，未必是真的如此糟糕，因为此方法能使属性查找更多地停留在对象本身，从而减少了原型链上的查找。</p>
-
+<p>假如另一个原型又是另一个类型的实例，层层递进，就构成了所谓的<code>原型链</code>。<br>
+            <div class="post-more-link text-center">
+              <a class="btn" href="/2015/05/07/javascriptoop3/#more">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
         
       </div>
@@ -246,8 +307,7 @@
 <li><code>Object</code>构造函数</li>
 <li>对象字面量</li>
 </ul>
-<p>缺点：会产生大量的重复代码。</p>
-<h4 id="工厂模式">工厂模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name, age)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">	o.name = name;</span><br><span class="line">	o.age = age;</span><br><span class="line">	o.sayName = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.name);</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>缺点：会产生大量的重复代码。<br>
             <div class="post-more-link text-center">
               <a class="btn" href="/2015/04/28/javascriptoop2/#more">
                 阅读全文 &raquo;
@@ -332,11 +392,7 @@
 <li><code>JavaScript</code>面向对象编程指南</li>
 <li><code>JavaScript</code>面向对象精要</li>
 </ul>
-<h4 id="原型">原型</h4><p>每个函数都有一个<code>prototype</code>(原型)属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含由特定类型的所有实例共享的属性和方法。</p>
-<p>每个原型对象，默认情况下，都会自动获得一个<code>constructor</code>(构造函数)属性，这个属性包含一个指向<code>prototype</code>属性所在函数的指针。</p>
-<p>每个实例，内部包含一个指针(内部属性)<code>[[Prototype]]</code>，指向构造函数的原型对象。</p>
-<p>首先来看<code>Object.prototype</code>的几个方法：<br><code>hasOwnProperty()</code>、<code>propertyIsEnumerable()</code>、<code>isPrototypeOf()</code>、<br><code>valueOf()</code>、<code>toString()</code><br>这5种方法经由继承会出现在所有对象中。</p>
-<p><code>ECMAScript5</code>增加了一个新方法，<code>Object.getPrototypeof()</code>，参数是实例，返回<code>[[Prototype]]</code>的值。<br>
+<h4 id="原型">原型</h4><p>每个函数都有一个<code>prototype</code>(原型)属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含由特定类型的所有实例共享的属性和方法。<br>
             <div class="post-more-link text-center">
               <a class="btn" href="/2015/04/28/javascriptoop1/#more">
                 阅读全文 &raquo;
@@ -479,7 +535,7 @@
       <p class="site-description motion-element">生命不息 梦想不止 有一颗文艺的心</p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">

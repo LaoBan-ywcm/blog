@@ -131,11 +131,11 @@
 <li><code>JavaScript</code>面向对象编程指南</li>
 <li><code>JavaScript</code>面向对象精要</li>
 </ul>
-<h4 id="原型">原型</h4><p>每个函数都有一个<code>prototype</code>(原型)属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含由特定类型的所有实例共享的属性和方法。</p>
-<p>每个原型对象，默认情况下，都会自动获得一个<code>constructor</code>(构造函数)属性，这个属性包含一个指向<code>prototype</code>属性所在函数的指针。</p>
+<h4 id="原型">原型</h4><p>每个函数都有一个<code>prototype</code>(原型)属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含由特定类型的所有实例共享的属性和方法。<br><a id="more"></a><br>每个原型对象，默认情况下，都会自动获得一个<code>constructor</code>(构造函数)属性，这个属性包含一个指向<code>prototype</code>属性所在函数的指针。</p>
 <p>每个实例，内部包含一个指针(内部属性)<code>[[Prototype]]</code>，指向构造函数的原型对象。</p>
 <p>首先来看<code>Object.prototype</code>的几个方法：<br><code>hasOwnProperty()</code>、<code>propertyIsEnumerable()</code>、<code>isPrototypeOf()</code>、<br><code>valueOf()</code>、<code>toString()</code><br>这5种方法经由继承会出现在所有对象中。</p>
-<p><code>ECMAScript5</code>增加了一个新方法，<code>Object.getPrototypeof()</code>，参数是实例，返回<code>[[Prototype]]</code>的值。<br><a id="more"></a><br>关于属性的一些操作：</p>
+<p><code>ECMAScript5</code>增加了一个新方法，<code>Object.getPrototypeof()</code>，参数是实例，返回<code>[[Prototype]]</code>的值。</p>
+<p>关于属性的一些操作：</p>
 <ul>
 <li><code>in</code>操作符，在给定对象中查找一个给定名称的属性，会检查自有和原型属性</li>
 <li><code>delete</code>操作符，删除属性</li>
@@ -252,7 +252,7 @@
       <p class="site-description motion-element">生命不息 梦想不止 有一颗文艺的心</p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">

@@ -22,7 +22,7 @@
 
 	<meta name="keywords" content="JavaScript," />
 
-  <title> JavaScript OOP (三) 继承1 // OriginalSoul </title>
+  <title> JavaScript OOP (三) 继承 1 // OriginalSoul </title>
 </head>
 
 <body>
@@ -95,7 +95,7 @@
           
           
             
-              JavaScript OOP (三) 继承1
+              JavaScript OOP (三) 继承 1
             
           
         </h1>
@@ -127,8 +127,8 @@
         
           <h2 id="原型链">原型链</h2><p>首先，要清楚构造函数、原型、和实例的关系。</p>
 <p>基本思想就是，让<code>原型对象</code>等于 另一个引用类型的<code>实例</code>，此时的原型对象将包含一个指向另一个原型的指针。</p>
-<p>假如另一个原型又是另一个类型的实例，层层递进，就构成了所谓的<code>原型链</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.type = <span class="string">"动物"</span>;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.getType = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.type;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.ownType = <span class="string">"狗"</span>; </span><br><span class="line">&#125;</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"><span class="comment">// 继承了 Animal</span></span><br><span class="line">Dog.prototype = <span class="keyword">new</span> Animal();</span><br><span class="line"></span><br><span class="line">Dog.prototype.getOwnType = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.ownType;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dog = <span class="keyword">new</span> Dog();</span><br><span class="line"><span class="built_in">console</span>.log(dog.getType());     <span class="comment">//动物</span></span><br><span class="line"><span class="built_in">console</span>.log(dog.getOwnType());  <span class="comment">//狗</span></span><br></pre></td></tr></table></figure>
+<p>假如另一个原型又是另一个类型的实例，层层递进，就构成了所谓的<code>原型链</code>。<br><a id="more"></a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.type = <span class="string">"动物"</span>;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.getType = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.type;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.ownType = <span class="string">"狗"</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承了 Animal</span></span><br><span class="line">Dog.prototype = <span class="keyword">new</span> Animal();</span><br><span class="line"></span><br><span class="line">Dog.prototype.getOwnType = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.ownType;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dog = <span class="keyword">new</span> Dog();</span><br><span class="line"><span class="built_in">console</span>.log(dog.getType());     <span class="comment">//动物</span></span><br><span class="line"><span class="built_in">console</span>.log(dog.getOwnType());  <span class="comment">//狗</span></span><br></pre></td></tr></table></figure>
 <p>这里要注意的是：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(Dog.prototype.constructor == Animal); <span class="regexp">//</span><span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
 <p>因为<code>Dog.prototype</code>是<code>Animal</code>的实例，没有<code>constructor</code>，只能通过搜索找到<code>Animal.prototype</code>的。<br>所以往往要，改一下：<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dog.prototype.<span class="keyword">constructor</span> = Dog;</span><br></pre></td></tr></table></figure></p>
 <p><strong>原型链的问题：</strong></p>
@@ -172,6 +172,8 @@
         
           <div class="post-nav">
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2015/05/07/javascriptoop4/">JavaScript OOP (三) 继承 2</a>
               
             </div>
 
@@ -233,7 +235,7 @@
       <p class="site-description motion-element">生命不息 梦想不止 有一颗文艺的心</p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
