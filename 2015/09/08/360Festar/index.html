@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="移动Web," />
+  <meta name="keywords" content="360,前端," />
 
 
 
@@ -37,25 +37,18 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="浏览器手机上有4种浏览器类型：内置浏览器、可下载浏览器、代理浏览器、以及WebView
-内置浏览器：
-IOS :  Safari
-Windows Phone:  IE">
+<meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mobile_web_handbook1">
-<meta property="og:url" content="http://originalsoul.me/2015/07/21/mobile-web-handbook1/index.html">
+<meta property="og:title" content="360前端星计划">
+<meta property="og:url" content="http://originalsoul.me/2015/09/08/360Festar/index.html">
 <meta property="og:site_name" content="OriginalSoul">
-<meta property="og:description" content="浏览器手机上有4种浏览器类型：内置浏览器、可下载浏览器、代理浏览器、以及WebView
-内置浏览器：
-IOS :  Safari
-Windows Phone:  IE">
-<meta property="og:updated_time" content="2015-08-18T16:54:15.000Z">
+<meta property="og:description">
+<meta property="og:image" content="http://originalsoul.me/'http://7xlmv3.com1.z0.glb.clouddn.com/360.jpg'">
+<meta property="og:image" content="http://originalsoul.me/'http://7xlmv3.com1.z0.glb.clouddn.com/640.jpeg'">
+<meta property="og:updated_time" content="2015-09-08T07:19:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mobile_web_handbook1">
-<meta name="twitter:description" content="浏览器手机上有4种浏览器类型：内置浏览器、可下载浏览器、代理浏览器、以及WebView
-内置浏览器：
-IOS :  Safari
-Windows Phone:  IE">
+<meta name="twitter:title" content="360前端星计划">
+<meta name="twitter:description">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -65,7 +58,7 @@ Windows Phone:  IE">
   };
 </script>
 
-  <title> mobile_web_handbook1 | OriginalSoul </title>
+  <title> 360前端星计划 | OriginalSoul </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -172,7 +165,7 @@ Windows Phone:  IE">
           
           
             
-              mobile_web_handbook1
+              360前端星计划
             
           
         </h1>
@@ -181,8 +174,8 @@ Windows Phone:  IE">
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-07-21T23:57:54+08:00" content="2015-07-21">
-            2015-07-21
+          <time itemprop="dateCreated" datetime="2015-09-08T15:07:32+08:00" content="2015-09-08">
+            2015-09-08
           </time>
         </span>
 
@@ -200,45 +193,7 @@ Windows Phone:  IE">
       
 
       
-        <span itemprop="articleBody"><h3 id="浏览器">浏览器</h3><p>手机上有4种浏览器类型：内置浏览器、可下载浏览器、代理浏览器、以及<code>WebView</code></p>
-<h5 id="内置浏览器：">内置浏览器：</h5><ul>
-<li>IOS :  Safari</li>
-<li>Windows Phone:  IE</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li>安卓：安卓WebKit或Chrome</li>
-<li>黑莓：黑莓WebKit</li>
-<li>Firefox OS：火狐</li>
-</ul>
-<p>无法单独升级浏览器，必须升级系统，这造成开发缓慢。</p>
-<h5 id="可下载浏览器：">可下载浏览器：</h5><p><code>ios</code>上不允许安装其他的渲染引擎。</p>
-<p>可下载浏览器:Firefox, Opera, UC, QQ, 360, etc</p>
-<h5 id="代理浏览器：">代理浏览器：</h5><p>代理浏览器的渲染引擎能够解析和执行<code>HTML</code>、<code>CSS</code>还有<code>JavaScript</code>，但并不是运行在设备上，而是在远程服务器上。</p>
-<p>三种比较重要的代理浏览器：<code>Opera Mini</code>、<code>UC Mini</code>、<code>Nokia Xpress</code>。</p>
-<p>优点是：轻量级，可以跑在低规格的手机上。<br>缺点是：没有客户端交互。</p>
-<h5 id="WebView：">WebView：</h5><p><code>WebView</code>是留给原生应用的一个操作系统浏览接口。</p>
-<p>苹果不允许在<code>ios</code>设备上安装其他渲染引擎。因此，其他浏览器要想在<code>IOS</code>上安装就必须用苹果的<code>WebView</code>。</p>
-<h4 id="渲染引擎">渲染引擎</h4><p>不使用<code>WebKit</code>的浏览器：</p>
-<ol>
-<li>IE Mobile 使用 Trident</li>
-<li>Opera Mini 使用 Presto，但是最终会换成 Blink</li>
-<li>Chrome 浏览器使用 Blink</li>
-<li>Firefox Mobile 和 Firefox OS 使用 Gecko</li>
-<li>UC Mini、Nokia Xpress 还有  Jolla 的 Sailfish OS 上的内置浏览器也用的是 Gecko</li>
-</ol>
-<h3 id="安卓">安卓</h3><p>安卓内置浏览器情况复杂：</p>
-<ul>
-<li>旧的内置浏览器—-安卓WebKit，正逐渐被Chrome替代</li>
-<li>安卓Webkit和Chrome有不同的衍生版</li>
-</ul>
-<p>为了实现差异化，设备厂商对内置浏览器做了修改。</p>
-<p>Google Chrome 是谷歌服务的一部分，因此它在所有支持谷歌服务的安卓4.3+设备上可用。有一个很关键但经常被误解的观点—-Google Chrome 并不一定是设备的内置浏览器。</p>
-<p>安卓WebKit并不是Chrome：它有完全分离的代码库，里面包含了完全分离的漏洞。渲染引擎是WebKit，而不是Blink。最新的安卓WebKit的版本是4.3，谷歌不再更新和支持它，谷歌打算用Chrome来代替它。</p>
-<p>在2013年，谷歌将Chrome从WebKit分离出来，并创造了自己的渲染引擎Blink。<br>Blink是为HTML和CSS设计的渲染引擎，通常与V8 JavaScript引擎配合使用。Blink与人人都可下载和修改的谷歌开源浏览器Chromium紧密地集成在一起。Chromium是为Windows、Mac、Linux、ChromeOS和安卓设计的。Google Chrome是谷歌自己对Chromium的一个实现。</p>
-<p>从Galaxy S4(2013发布) 以来，三星开始使用他自己开发的基于Chromium的一款浏览器作为内置浏览器，称为三星Chrome。</p>
-<p>谷歌强制所有使用谷歌服务的设备使用Google Chrome。所以很多手机，除了自己的内置浏览器，也都安装了Google Chrome。</p>
-<p>如果navigator.userAgent包含单词Chrome，则是Chrome（不一定是Google Chrome），不包含，就是安卓WebKit。</p>
+        <span itemprop="articleBody"><p><img src="&#39;http://7xlmv3.com1.z0.glb.clouddn.com/360.jpg&#39;" alt="宣传海报"><br><img src="&#39;http://7xlmv3.com1.z0.glb.clouddn.com/640.jpeg&#39;" alt="4组"></p>
 </span>
       
     </div>
@@ -247,7 +202,9 @@ Windows Phone:  IE">
       
         <div class="post-tags">
           
-            <a href="/tags/移动Web/" rel="tag">#移动Web</a>
+            <a href="/tags/360/" rel="tag">#360</a>
+          
+            <a href="/tags/前端/" rel="tag">#前端</a>
           
         </div>
       
@@ -256,13 +213,11 @@ Windows Phone:  IE">
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/22/scope-closure/" rel="prev">scope_closure</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/07/javascriptoop5/" rel="next">JavaScript OOP (三) 继承 3</a>
+              <a href="/2015/08/25/express-analyse/" rel="next">Express</a>
             
           </div>
         </div>
@@ -366,7 +321,7 @@ Windows Phone:  IE">
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器"><span class="nav-number">1.</span> <span class="nav-text">浏览器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#内置浏览器："><span class="nav-number">1.0.1.</span> <span class="nav-text">内置浏览器：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可下载浏览器："><span class="nav-number">1.0.2.</span> <span class="nav-text">可下载浏览器：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代理浏览器："><span class="nav-number">1.0.3.</span> <span class="nav-text">代理浏览器：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#WebView："><span class="nav-number">1.0.4.</span> <span class="nav-text">WebView：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#渲染引擎"><span class="nav-number">1.1.</span> <span class="nav-text">渲染引擎</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安卓"><span class="nav-number">2.</span> <span class="nav-text">安卓</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
