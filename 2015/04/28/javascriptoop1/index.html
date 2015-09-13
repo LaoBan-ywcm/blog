@@ -45,7 +45,7 @@ JavaScript面向对象精要
 
 原型每个函数都有一个prototype(原型)属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含由特定类型的所有实例共享的属性和方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript OOP (一) 初探">
+<meta property="og:title" content="JavaScript OOP (属性和方法)">
 <meta property="og:url" content="http://originalsoul.me/2015/04/28/javascriptoop1/index.html">
 <meta property="og:site_name" content="OriginalSoul">
 <meta property="og:description" content="主要是三本书的读书笔记：
@@ -55,9 +55,9 @@ JavaScript面向对象编程指南
 JavaScript面向对象精要
 
 原型每个函数都有一个prototype(原型)属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含由特定类型的所有实例共享的属性和方法。">
-<meta property="og:updated_time" content="2015-05-07T11:29:44.000Z">
+<meta property="og:updated_time" content="2015-09-13T02:35:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript OOP (一) 初探">
+<meta name="twitter:title" content="JavaScript OOP (属性和方法)">
 <meta name="twitter:description" content="主要是三本书的读书笔记：
 
 JavaScript高级程序设计 
@@ -74,7 +74,7 @@ JavaScript面向对象精要
   };
 </script>
 
-  <title> JavaScript OOP (一) 初探 | OriginalSoul </title>
+  <title> JavaScript OOP (属性和方法) | OriginalSoul </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -181,7 +181,7 @@ JavaScript面向对象精要
           
           
             
-              JavaScript OOP (一) 初探
+              JavaScript OOP (属性和方法)
             
           
         </h1>
@@ -235,7 +235,7 @@ JavaScript面向对象精要
 <li><code>[[Enumerable]]</code>：表示能否遍历该属性。</li>
 </ol>
 <p>一般像直接在对象上定义的属性，这两个特性默认值为<code>true</code>。</p>
-<p><strong>修改属性特性：</strong><br>使用<code>Object.defineProperty()</code>方法，该方法接受<code>3</code>个参数：拥有该属性的对象、属性名和包含需要设置的特性的属性描述对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;&#10;&#9;name: &#39;OriginalSoul&#39;&#10;&#125;;&#10;&#10;Object.defineProperty(person, &#39;name&#39;, &#123;&#10;&#9;enumerable: false&#10;&#125;);&#10;&#10;console.log(person.propertyIsEnumerable(&#39;name&#39;));  // false&#10;&#10;&#10;Object.defineProperty(person, &#39;name&#39;, &#123;&#10;&#9;configurable: false&#10;&#125;);&#10;&#10;delete person.name;&#10;console.log(&#34;name&#34; in person);  // true&#10;&#10;Object.defineProperty(person, &#34;name&#34;, &#123;&#10;&#9;configurable: true&#10;&#125;);&#10;// Uncaught TypeError: Cannot redefine property: name</span><br></pre></td></tr></table></figure></p>
+<p><strong>修改属性特性：</strong><br>使用<code>Object.defineProperty()</code>方法，该方法接受<code>3</code>个参数：拥有该属性的对象、属性名和包含需要设置的特性的属性描述符对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">	name: <span class="string">'OriginalSoul'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">'name'</span>, &#123;</span><br><span class="line">	enumerable: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.propertyIsEnumerable(<span class="string">'name'</span>));  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">'name'</span>, &#123;</span><br><span class="line">	configurable: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> person.name;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"name"</span> <span class="keyword">in</span> person);  <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">"name"</span>, &#123;</span><br><span class="line">	configurable: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// Uncaught TypeError: Cannot redefine property: name</span></span><br></pre></td></tr></table></figure></p>
 <p>一旦把属性定义为不可配置的，就不能再把它变回可配置的了。</p>
 <p><strong>数据属性特性：</strong></p>
 <ul>
@@ -270,7 +270,7 @@ JavaScript面向对象精要
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/28/javascriptoop2/" rel="prev">JavaScript OOP (二) 创建对象</a>
+              <a href="/2015/04/28/javascriptoop2/" rel="prev">JavaScript OOP (创建对象)</a>
             
           </div>
 
