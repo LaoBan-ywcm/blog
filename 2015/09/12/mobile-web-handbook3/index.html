@@ -37,16 +37,40 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="生命不息 梦想不止 有一颗文艺的心">
+<meta name="description" content="触摸事件一共四种触摸事件：
+
+touchstart：在用户的手指触摸屏幕的瞬间触发
+touchmove: 在用户移动手指的过程中连续触发
+touchend:  用户的手指离开屏幕的瞬间触发
+touchcancel: 其含义取决于浏览器
+
+下拉菜单：手指触摸，菜单打开，选择时手机离开，菜单收缩，显然不行。跨设备环境的最好解决方案是使用点击事件。
+拖放： 有一个问题，就是如何确定事件的坐标。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动Web手册 (JavaScript)">
 <meta property="og:url" content="http://originalsoul.me/2015/09/12/mobile-web-handbook3/index.html">
 <meta property="og:site_name" content="OriginalSoul">
-<meta property="og:description" content="生命不息 梦想不止 有一颗文艺的心">
-<meta property="og:updated_time" content="2015-09-12T16:54:41.000Z">
+<meta property="og:description" content="触摸事件一共四种触摸事件：
+
+touchstart：在用户的手指触摸屏幕的瞬间触发
+touchmove: 在用户移动手指的过程中连续触发
+touchend:  用户的手指离开屏幕的瞬间触发
+touchcancel: 其含义取决于浏览器
+
+下拉菜单：手指触摸，菜单打开，选择时手机离开，菜单收缩，显然不行。跨设备环境的最好解决方案是使用点击事件。
+拖放： 有一个问题，就是如何确定事件的坐标。">
+<meta property="og:updated_time" content="2015-09-15T15:27:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动Web手册 (JavaScript)">
-<meta name="twitter:description" content="生命不息 梦想不止 有一颗文艺的心">
+<meta name="twitter:description" content="触摸事件一共四种触摸事件：
+
+touchstart：在用户的手指触摸屏幕的瞬间触发
+touchmove: 在用户移动手指的过程中连续触发
+touchend:  用户的手指离开屏幕的瞬间触发
+touchcancel: 其含义取决于浏览器
+
+下拉菜单：手指触摸，菜单打开，选择时手机离开，菜单收缩，显然不行。跨设备环境的最好解决方案是使用点击事件。
+拖放： 有一个问题，就是如何确定事件的坐标。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -191,7 +215,16 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><h3 id="触摸事件">触摸事件</h3><p>一共四种触摸事件：</p>
+<ul>
+<li><code>touchstart</code>：在用户的手指触摸屏幕的瞬间触发</li>
+<li><code>touchmove</code>: 在用户移动手指的过程中连续触发</li>
+<li><code>touchend</code>:  用户的手指离开屏幕的瞬间触发</li>
+<li><code>touchcancel</code>: 其含义取决于浏览器</li>
+</ul>
+<p>下拉菜单：手指触摸，菜单打开，选择时手机离开，菜单收缩，显然不行。跨设备环境的最好解决方案是使用点击事件。</p>
+<p>拖放： 有一个问题，就是如何确定事件的坐标。</p>
+</span>
       
     </div>
 
@@ -318,7 +351,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#触摸事件"><span class="nav-number">1.</span> <span class="nav-text">触摸事件</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
