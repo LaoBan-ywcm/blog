@@ -164,6 +164,77 @@
           
           
             
+              <a class="post-title-link" href="/2015/09/16/function/" itemprop="url">
+                JavaScript函数
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-09-16T15:40:14+08:00" content="2015-09-16">
+            2015-09-16
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h3 id="调用">调用</h3><p>JavaScript中有四种调用方式：</p>
+<ol>
+<li>方法模式: this到对象的绑定</li>
+<li>函数调用模式:  this绑定到全局对象</li>
+<li>构造器调用模式: new调用，this绑定到新对象。如果new,且返回值不是一个对象，则返回this(该新对象)。</li>
+<li>apply调用模式</li>
+</ol>
+<h3 id="扩充类型功能">扩充类型功能</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.method = <span class="function"><span class="keyword">function</span> (<span class="params">name, func</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.prototype[name] = func;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>通过<code>Number.prototype</code>增加一个<code>integer</code>方法，取整：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number.method(&#39;integer&#39;, function () &#123;&#10;&#9;return Math[this &#60; 0 ? &#39;ceil&#39; : &#39;floor&#39;](this);&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="递归">递归</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> walk_the_Dom = <span class="function"><span class="keyword">function</span> <span class="title">walk</span> (<span class="params">node, func</span>) </span>&#123;</span><br><span class="line">	func(node);</span><br><span class="line">	node = node.firstChild;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(node) &#123;</span><br><span class="line">		walk(node, func);</span><br><span class="line">		node = node.nextSibling;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getElementsByAttribute = <span class="function"><span class="keyword">function</span> (<span class="params">att, value</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> results = [];</span><br><span class="line"></span><br><span class="line">	walk_the_DOM(<span class="built_in">document</span>.body, <span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> actual = node.nodeType === <span class="number">1</span> &amp;&amp; node.getAttribute(att);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> actual === <span class="string">'string'</span> &amp;&amp; (actual === value || <span class="keyword">typeof</span> value !== <span class="string">'string'</span>)) &#123;</span><br><span class="line">			results.push(node);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/09/14/mongodb/" itemprop="url">
                 MongoDB 和 mongoose
               </a>
@@ -235,7 +306,7 @@
           
             
               <a class="post-title-link" href="/2015/09/12/mobile-web-handbook3/" itemprop="url">
-                移动Web手册 (JavaScript)
+                移动Web手册 (触摸事件)
               </a>
             
           
@@ -272,8 +343,40 @@
 <li><code>touchend</code>:  用户的手指离开屏幕的瞬间触发</li>
 <li><code>touchcancel</code>: 其含义取决于浏览器</li>
 </ul>
+<p>只要手指从某个元素按下，无论如何移动，只要不离开屏幕，touchmove事件都会持续触发。如果不是从那个元素按下，而是贴着屏幕移动到哪个元素上，touchmove是不会发出的。</p>
 <p>下拉菜单：手指触摸，菜单打开，选择时手机离开，菜单收缩，显然不行。跨设备环境的最好解决方案是使用点击事件。</p>
 <p>拖放： 有一个问题，就是如何确定事件的坐标。</p>
+<p>触摸事件有一些特点：</p>
+<ul>
+<li>在手指触碰屏幕的瞬间，系统无法判断出你的意图(轻触，缩放，双触)，需要一个时间间隔</li>
+<li>多个触摸动作可以同时发生</li>
+<li>鼠标指针总是指着某一个像素，而手指触摸会覆盖很多像素点</li>
+<li>鼠标事件是连续的，而触摸事件不是连续的</li>
+</ul>
+<h3 id="touchList类型">touchList类型</h3><p>触摸事件对象 有一个touchList数组属性，其中包含了每个触摸点的信息（四个手指触摸屏幕，数组会有四个元素）。</p>
+<p>一共有三个这样类型的数组：</p>
+<ul>
+<li><code>touches</code>: 当前触摸屏幕的触摸点数组，屏幕上所有手指</li>
+<li><code>changedTouches</code>: 导致触摸事件被触发的触摸点数组，有变化的手指</li>
+<li><code>targetTouches</code>: 事件目标元素上的触摸点数组，当前元素上的手指</li>
+</ul>
+<p>有一个技巧：使用<code>changedTouches</code>。<br>如果用户最后一个手指离开屏幕触发<code>touchend</code>事件，这最后一个触摸点信息不会出现在另外两个数组中，会出现在<code>changedTouches</code>数组中。</p>
+<p><code>IE</code>不支持触摸点数组。</p>
+<p>兼容获取坐标：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findCoordinates</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> x,y;</span><br><span class="line">	<span class="keyword">if</span> (e.changedTouches) &#123;</span><br><span class="line">		x = e.changedTouches[<span class="number">0</span>].clientX; <span class="comment">//第一个手指相对于视觉视口的横向偏移, pageX相对布局视口</span></span><br><span class="line">		y = e.changedTouches[<span class="number">0</span>].clientY;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;   <span class="comment">// point或mouse事件</span></span><br><span class="line">		x = e.clientX;</span><br><span class="line">		y = e.clientY;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> [x,y];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="click_延时">click 延时</h3><p>浏览器要判断是什么行为，导致手机上的click事件有约300ms的延迟。</p>
+<ul>
+<li>当页面不可缩放时，取消这个延时</li>
+<li>chrome浏览器，如果页面包含<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;</code>时取消延时</li>
+<li>可以通过<code>touch-action: manipulation(css)</code>让<code>IE</code>取消延时</li>
+<li>Safari 不会取消延时</li>
+</ul>
+<h3 id="Safari_事件冒泡">Safari 事件冒泡</h3><p>在safari中，鼠标事件和click事件，只有在下面情况中才会冒泡：</p>
+<ul>
+<li>目标元素是一个链接或者是表单域</li>
+<li>目标元素或其祖先元素（上溯至<body>但不包含）显示包含任意鼠标事件的处理函数，可以是空函数</body></li>
+<li>目标元素或其祖先元素（上溯至并包含document）包含<code>cursor:pointer</code>css声明</li>
+</ul>
+<p>如果期望冒泡到document或body，但不奏效，给目标元素设置一个空的click处理函数就好了：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">targetElement.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;&#125;;</span><br></pre></td></tr></table></figure></p>
 </span>
         
       
@@ -431,73 +534,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/08/25/express-analyse/" itemprop="url">
-                Express
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-25T23:39:59+08:00" content="2015-08-25">
-            2015-08-25
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p><code>npm install express</code>安装完成后打开<code>express</code>的目录，在<code>package.json</code>中看到新的版本号是<code>4.13.3</code>。<br>入口文件<code>index.js</code>中主要代码只有一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module.exports = require(&#39;./lib/express&#39;);</span><br></pre></td></tr></table></figure></p>
-<h2 id="express-js">express.js</h2><p>依赖模块：<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/25/express-analyse/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -536,7 +572,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
