@@ -42,9 +42,7 @@
 方法模式: this到对象的绑定
 函数调用模式:  this绑定到全局对象
 构造器调用模式: new调用，this绑定到新对象。如果new,且返回值不是一个对象，则返回this(该新对象)。
-apply调用模式
-
-扩充类型功能1234Function.prototype.method = function (name, func) &amp;#123;	thi">
+apply调用模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript函数">
 <meta property="og:url" content="http://originalsoul.me/2015/09/16/function/index.html">
@@ -54,10 +52,8 @@ apply调用模式
 方法模式: this到对象的绑定
 函数调用模式:  this绑定到全局对象
 构造器调用模式: new调用，this绑定到新对象。如果new,且返回值不是一个对象，则返回this(该新对象)。
-apply调用模式
-
-扩充类型功能1234Function.prototype.method = function (name, func) &amp;#123;	thi">
-<meta property="og:updated_time" content="2015-09-16T10:05:59.000Z">
+apply调用模式">
+<meta property="og:updated_time" content="2015-09-18T15:02:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript函数">
 <meta name="twitter:description" content="调用JavaScript中有四种调用方式：
@@ -65,9 +61,7 @@ apply调用模式
 方法模式: this到对象的绑定
 函数调用模式:  this绑定到全局对象
 构造器调用模式: new调用，this绑定到新对象。如果new,且返回值不是一个对象，则返回this(该新对象)。
-apply调用模式
-
-扩充类型功能1234Function.prototype.method = function (name, func) &amp;#123;	thi">
+apply调用模式">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -217,9 +211,10 @@ apply调用模式
 <li>方法模式: this到对象的绑定</li>
 <li>函数调用模式:  this绑定到全局对象</li>
 <li>构造器调用模式: new调用，this绑定到新对象。如果new,且返回值不是一个对象，则返回this(该新对象)。</li>
-<li>apply调用模式</li>
-</ol>
+<li>apply调用模式<a id="more"></a>
 <h3 id="扩充类型功能">扩充类型功能</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.method = <span class="function"><span class="keyword">function</span> (<span class="params">name, func</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.prototype[name] = func;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <p>通过<code>Number.prototype</code>增加一个<code>integer</code>方法，取整：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number.method(&#39;integer&#39;, function () &#123;&#10;&#9;return Math[this &#60; 0 ? &#39;ceil&#39; : &#39;floor&#39;](this);&#10;&#125;);</span><br></pre></td></tr></table></figure></p>
 <h3 id="递归">递归</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> walk_the_Dom = <span class="function"><span class="keyword">function</span> <span class="title">walk</span> (<span class="params">node, func</span>) </span>&#123;</span><br><span class="line">	func(node);</span><br><span class="line">	node = node.firstChild;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(node) &#123;</span><br><span class="line">		walk(node, func);</span><br><span class="line">		node = node.nextSibling;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getElementsByAttribute = <span class="function"><span class="keyword">function</span> (<span class="params">att, value</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> results = [];</span><br><span class="line"></span><br><span class="line">	walk_the_DOM(<span class="built_in">document</span>.body, <span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> actual = node.nodeType === <span class="number">1</span> &amp;&amp; node.getAttribute(att);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> actual === <span class="string">'string'</span> &amp;&amp; (actual === value || <span class="keyword">typeof</span> value !== <span class="string">'string'</span>)) &#123;</span><br><span class="line">			results.push(node);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </span>
