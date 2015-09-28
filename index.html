@@ -164,6 +164,69 @@
           
           
             
+              <a class="post-title-link" href="/2015/09/28/array/" itemprop="url">
+                数组
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-09-28T23:50:17+08:00" content="2015-09-28">
+            2015-09-28
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p><code>delete</code>会在数组中造成一个黑洞：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="string">'zero'</span>,<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> numbers[<span class="number">2</span>];  <span class="comment">// ["zero", "one", undefined, "three"]</span></span><br></pre></td></tr></table></figure></p>
+<p>所以，最好使用<code>splice</code>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numbers.splice(<span class="number">2</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/09/28/regexp/" itemprop="url">
                 regexp
               </a>
@@ -415,77 +478,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/16/function/" itemprop="url">
-                JavaScript函数
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-09-16T15:40:14+08:00" content="2015-09-16">
-            2015-09-16
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="调用">调用</h3><p>JavaScript中有四种调用方式：</p>
-<ol>
-<li>方法模式: this到对象的绑定</li>
-<li>函数调用模式:  this绑定到全局对象</li>
-<li>构造器调用模式: new调用，this绑定到新对象。如果new,且返回值不是一个对象，则返回this(该新对象)。</li>
-<li>apply调用模式
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/16/function/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -524,7 +516,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -538,7 +530,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
