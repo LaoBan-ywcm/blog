@@ -1,0 +1,115 @@
+
+@font-face {
+    font-family: 'Dancing Script';
+    src: url('font/dancingscript-regular-webfont.eot');
+    src: url('font/dancingscript-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/dancingscript-regular-webfont.woff2') format('woff2'),
+         url('font/dancingscript-regular-webfont.woff') format('woff'),
+         url('font/dancingscript-regular-webfont.ttf') format('truetype'),
+         url('font/dancingscript-regular-webfont.svg#dancing_scriptregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+li {
+	list-style-type: none;
+}
+a {
+	display: block;
+	text-decoration: none;
+}
+h1 {
+	width: 600px;
+	text-align: center;
+	margin: 130px auto 0;
+}
+h1 span {
+	font-family: Dancing Script;
+	font-size: 88px;
+	margin-right: 7px;
+}
+h1 span:first-child,
+h1 span:last-child {
+	margin-right: 0;
+}
+.start {
+	font-size: 100px;
+}
+.one,.four {
+	color: #5591e5;
+}
+.two,.six {
+	color: #ef4336;
+}
+.three {
+	color: #ffbf0e;
+}
+.five {
+	color: #31aa52;
+}
+.content {
+	width: 600px;
+	margin: 50px auto 60px;
+}
+.content .intro {
+	font-size: 16px;
+	color: #bfbfbf;
+	outline: 0;
+	line-height: 36px;
+	height: 36px;
+	width: 600px;
+	padding-left: 10px;
+}
+.options {
+	display: none;
+	width: 602px;
+	height: 28px;
+	padding-left: 10px;
+	color: #96c7d7;
+	font-weight: bold;
+	line-height: 28px;
+	border: 1px solid #bfbfbf;
+	border-top: none;
+}
+.options label {
+	margin-right: 10px;
+}
+.options input {
+	height: 13px;
+}
+.options .close {
+	float: right;
+	color: #f69380;
+	margin-right: 10px;
+	cursor: pointer;
+}
+.click {
+	margin-top: 30px;
+	text-align: center;
+}
+.click .btn {
+	height: 36px;
+	line-height: 36px;
+	font-size: 13px;
+	font-family: arial,sans-serif;
+	font-weight: bold;
+	color: #757575;
+	background-color: #f2f2f2;
+	border: 1px solid #f2f2f2;
+	border-radius: 2px;
+	padding: 0 16px;
+	cursor: pointer;
+}
+.click .btn:hover {
+	border-color: #c6c6c6;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+	color: #222;
+}
+.click .go {
+	margin-right: 15px;
+}

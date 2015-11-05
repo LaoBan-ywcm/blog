@@ -2,9 +2,81 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>test</title>
+	<title>OriginalSoul</title>
+	<link rel="stylesheet" href='./css/style.css' type='text/css'>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
-	<p>just test</p>
+	<h1><span class="one start">O</span><span class="two">r</span><span class="three">i</span><span class="four">g</span><span class="five">i</span><span class="six">n</span><span class="one">a</span><span class="two">l</span> <span class="three start">S</span><span class="four">o</span><span class="five">u</span><span class="six">l</span></h1>
+
+	<section class="content">
+		<input type="text" class="intro" value="Hey, I'm OriginalSoul, Please click here and select one option to go~">
+		<div class="options">
+			<label><input type="checkbox" class="option" value="Blog"> Blog</label>
+			<label><input type="checkbox" class="option" value="Github"> Github</label>
+			<label><input type="checkbox" class="option" value="Photo"> Photo</label>
+			<label><input type="checkbox" class="option" value="Book"> Book</label>
+			<span class="close">✖</span>
+		</div>
+		<div class="click">
+			<input type="button" value="Let's go" class="btn go">
+			<input type="button" value="About me" class="btn me">
+		</div>
+	</section>
+
+	<script>
+	$(function () {
+		var oInput = $('.intro'),
+			oWrap = $('.options'),
+			options = $('.option'),
+			go = $('.go');
+
+		oInput.focus(function (e) {
+			oInput.val("");
+			oWrap.show("slow");
+		});
+
+		options.click(function () {
+			var self = $(this);
+			if (!self.attr('checked')) {
+				self.attr('checked', true);
+				self.parent().siblings().children("input").attr('checked', false);
+				oInput.val(self.val());
+			} else {
+				self.attr('checked', false);
+				oInput.val("");
+			}
+		});
+
+		$('.close').click(function () {
+			oWrap.hide("slow", function () {
+				oInput.val("Hey, I'm OriginalSoul, Please click here and select one option to go~");
+			});
+		})
+
+		$('.go').click(function () {
+			var tag = null;
+
+			options.each(function () {
+				$(this).attr('checked') ? tag = $(this).val() : ""
+			});
+
+			switch (tag) {
+				case "Blog":
+					window.open("https://github.com/OriginalSoul/originalsoul.github.io/issues");
+					break;
+				case "Github":
+					window.open("http://github.com/OriginalSoul");
+					break;
+				case "Book":
+					alert("期待。。。")
+					break;
+				case "Photo":
+					window.open("http://originalsoul.lofter.com");
+					break;
+			}
+		})
+	});
+	</script>
 </body>
 </html>
